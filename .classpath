@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="target/classes" path="src/main/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
+		<attributes>
+			<attribute name="module" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Daniel/OneDrive/Área de Trabalho/JarsEmail/activation.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daniel/OneDrive/Área de Trabalho/JarsEmail/commons-email-1.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daniel/OneDrive/Área de Trabalho/JarsEmail/commons-email-1.5-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daniel/OneDrive/Área de Trabalho/JarsEmail/commons-email-1.5-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daniel/OneDrive/Área de Trabalho/JarsEmail/commons-email-1.5-tests.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daniel/OneDrive/Área de Trabalho/JarsEmail/commons-email-1.5-test-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daniel/OneDrive/Área de Trabalho/JarsEmail/dsn.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daniel/OneDrive/Área de Trabalho/JarsEmail/gimap.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daniel/OneDrive/Área de Trabalho/JarsEmail/imap.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daniel/OneDrive/Área de Trabalho/JarsEmail/iText-5.0.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daniel/OneDrive/Área de Trabalho/JarsEmail/javax.mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daniel/OneDrive/Área de Trabalho/JarsEmail/mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daniel/OneDrive/Área de Trabalho/JarsEmail/mail-1.4.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daniel/OneDrive/Área de Trabalho/JarsEmail/mailapi.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daniel/OneDrive/Área de Trabalho/JarsEmail/pop3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daniel/OneDrive/Área de Trabalho/JarsEmail/smtp.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daniel/OneDrive/Área de Trabalho/JarsEmail/xstream-1.4.18.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
