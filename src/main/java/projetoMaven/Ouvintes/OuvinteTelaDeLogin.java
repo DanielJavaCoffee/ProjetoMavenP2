@@ -9,6 +9,7 @@ import projetoMaven.DAO.UsuarioDAO;
 import projetoMaven.Mensagem.Mensagem;
 import projetoMaven.Telas.TelaDeCadastroDeUsuario;
 import projetoMaven.Telas.TelaDeLogin;
+import projetoMaven.Telas.TelaDeMenu;
 import projetoMaven.entity.Usuario;
 import projetoMaven.model.MensageiroEmail;
 
@@ -28,21 +29,28 @@ public class OuvinteTelaDeLogin implements ActionListener {
 
 		String email = telaDeLogin.getCampoEmail().getText();
 		String senha = telaDeLogin.getCampoEmail().getText();
-		
-		if(email.isBlank() || senha.isBlank()) {
+
+		if (email.isBlank() || senha.isBlank()) {
 			Mensagem.usuarioCampoVazio();
-		} 
+		} else {
+			if (UsuarioDAO.login(email, senha)) {
+				new TelaDeMenu(null);
+				telaDeLogin.setVisible(false);
+			} else {
+				Mensagem.usuarioNaoEncontrado();
+			}
+		}
 	}
 
 	public void actionPerformedSenha(ActionEvent senha) {
-		
+
 		long id = Long.parseLong(JOptionPane.showInputDialog(telaDeLogin, "Informe o nome do usuário: "));
-		if(UsuarioDAO.existeUsuario(id) != null) {
-			
-			MensageiroEmail.enviarMensagemAoCliente("Sua Senha", UsuarioDAO.existeUsuario(id).getEmail(), 
-					UsuarioDAO.existeUsuario(id).getSenha() + UsuarioDAO.existeUsuario(id).getEmail());
+		if (UsuarioDAO.existeUsuario(id) != null) {
+
+			MensageiroEmail.enviarMensagemAoCliente("Seus Dados", UsuarioDAO.existeUsuario(id).getEmail(),
+					UsuarioDAO.existeUsuario(id).toString());
 			Mensagem.emailEnviadoUsuario();
-			
+
 		} else {
 			Mensagem.usuarioNaoEncontrado();
 		}

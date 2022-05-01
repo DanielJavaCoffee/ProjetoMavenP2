@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import projetoMaven.DAO.UsuarioDAO;
 import projetoMaven.Mensagem.Mensagem;
 import projetoMaven.Telas.TelaDeCadastroDeUsuario;
+import projetoMaven.Telas.TelaDeMenu;
 import projetoMaven.entity.Usuario;
 
 public class OuvinteTelaDeCadastroDeUsuario implements ActionListener{
@@ -34,7 +35,9 @@ public class OuvinteTelaDeCadastroDeUsuario implements ActionListener{
 			Mensagem.usuarioSenhaErrada();
 		} else {
 			Usuario usuario = new Usuario(nome, email, senha01);
-			UsuarioDAO.salvarUsuario(usuario);
+			UsuarioDAO.saveUpDate(usuario);
+			new TelaDeMenu(null);
+			telaDeCadastroDeUsuario.setVisible(false);
 		}
 	}	
 }

@@ -49,7 +49,7 @@ public class MensageiroEmail {
 
             message.setRecipients(Message.RecipientType.TO, toUser);
             message.setSubject(assunto);
-            message.setText("Sua Senha: " + t + ", " + "Email: " + t );
+            message.setText((String) t);
             Transport.send(message);
 
         } catch (MessagingException e) {

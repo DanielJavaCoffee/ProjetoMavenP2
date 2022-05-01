@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import projetoMaven.enums.CanalForma;
+
 @Entity
 public class Canal implements Serializable{
 
@@ -12,20 +14,17 @@ public class Canal implements Serializable{
 	@Id
 	private long id;
 	private String nomeDoCanal;
-	private String forma;
+	private CanalForma formaDeAssitir;
+	private String numeroDoCanalOuLink;
 	
 	public Canal() {
 		this.id = System.currentTimeMillis();
 	}
 	
-	public Canal(String nome) {
+	public Canal(String nome, CanalForma forma, String numeroDoCanal) {
 		this.nomeDoCanal = nome;
-		this.id = System.currentTimeMillis();
-	}
-	
-	public Canal(String nome, String forma) {
-		this.nomeDoCanal = nome;
-		this.forma = forma;
+		this.formaDeAssitir = forma;
+		this.numeroDoCanalOuLink = numeroDoCanal;
 		this.id = System.currentTimeMillis();
 	}
 
@@ -37,12 +36,20 @@ public class Canal implements Serializable{
 		this.nomeDoCanal = nomeDoCanal;
 	}
 
-	public String getForma() {
-		return forma;
+	public CanalForma getCanalForma() {
+		return formaDeAssitir;
 	}
 
-	public void setForma(String forma) {
-		this.forma = forma;
+	public void setCanalForma(CanalForma forma) {
+		this.formaDeAssitir = forma;
+	}
+
+	public String getNumeroDoCanal() {
+		return numeroDoCanalOuLink;
+	}
+
+	public void setNumeroDoCanal(String numeroDoCanal) {
+		this.numeroDoCanalOuLink = numeroDoCanal;
 	}
 
 	public long getId() {

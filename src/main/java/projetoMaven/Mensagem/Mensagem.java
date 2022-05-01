@@ -13,7 +13,7 @@ public class Mensagem {
 		JOptionPane.showMessageDialog(null, "As senhas não são iguais!");
 	}
 	public static void usuarioCampoVazio() {
-		JOptionPane.showMessageDialog(null, "Campo vazio/s!");
+		JOptionPane.showMessageDialog(null, "Campo/s vazio/s!");
 	}
 	public static void usuarioExcluir() {
 		JOptionPane.showMessageDialog(null, "Usuário exluido com sucesso!");
@@ -22,7 +22,7 @@ public class Mensagem {
 		JOptionPane.showMessageDialog(null, "Usuário não encontrado!");
 	}
 	
-	//bank
+	//bank dice
 	public static void bancoErro(IllegalArgumentException e) {
 		JOptionPane.showMessageDialog(null, e);
 	}
@@ -32,9 +32,25 @@ public class Mensagem {
 	public static void bancoErro() {
 		JOptionPane.showMessageDialog(null, "Erro com o banco de dados");	
 	}
+	public static void bancoBuscarPorLetra(NumberFormatException e) {
+		JOptionPane.showMessageDialog(null, "Não é permitido letras, apenas números. " + e.getMessage());
+	}
+	
+	//Exception
+	public static void exception(Exception e) {
+		JOptionPane.showMessageDialog(null, "Erro. " + e.getMessage());
+	}
 	
 	//e-mail
 	public static void emailEnviadoUsuario() {
 		JOptionPane.showMessageDialog(null, "Senha enviada com sucesso!");
+	}
+	public static void emailErro() {
+		JOptionPane.showConfirmDialog(null, "Houve Algum erro");
+	}
+	
+	//Canal
+	public static void canalOpcaoInvalida() {
+		JOptionPane.showConfirmDialog(null, "Opção errada.");
 	}
 }

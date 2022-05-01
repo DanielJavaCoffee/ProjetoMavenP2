@@ -25,12 +25,11 @@ public class TelaDeLogin extends JanelaPadrao {
 	public TelaDeLogin(String titulo) {
 		super(titulo);
 		adicionarTitulo();
-		adicionarNomes();
-		adicionarCampoDeTextos();
+		adicionarJLabel();
+		adicionarJTextFiled();;
 		adicionarButtonProseguir();
 		adicionarButtonEsqueciSenha();
 		setVisible(true);
-
 	}
 
 	private void adicionarTitulo() {
@@ -41,8 +40,10 @@ public class TelaDeLogin extends JanelaPadrao {
 		jLabel.setBackground(Color.GRAY);
 		add(jLabel);
 	}
+	
+	
 
-	private void adicionarNomes() {
+	private void adicionarJLabel() {
 
 		JLabel email = new JLabel("Email:");
 		email.setBounds(30, 80, 100, 30);
@@ -53,9 +54,9 @@ public class TelaDeLogin extends JanelaPadrao {
 		add(senha);
 	}
 	
-	private void adicionarCampoDeTextos() {
+	private void adicionarJTextFiled() {
 		
-		campoEmail = new JPasswordField();
+		campoEmail = new JTextField();
 		campoEmail.setBounds(130, 80, 200, 30);
 		add(campoEmail);
 		
@@ -63,7 +64,7 @@ public class TelaDeLogin extends JanelaPadrao {
 		campoSenha.setBounds(130, 130, 200, 30);
 		add(campoSenha);
 	}
-
+	
 	public void adicionarButtonProseguir() {
 
 		buttonProseguir = new JButton("Proseguir");

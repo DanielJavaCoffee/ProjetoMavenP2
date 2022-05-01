@@ -25,8 +25,8 @@ public class TelaDeCadastroDeUsuario extends JanelaPadrao {
 	public TelaDeCadastroDeUsuario(String titulo) {
 		super(titulo);
 		titulo();
-		adicionarCampoNomes();
-		adicionarCampoDeTextos();
+		adicionarJLabel();
+		adicionarJTextFiled();
 		buttonSalvar();
 		setVisible(true);
 		
@@ -41,7 +41,7 @@ public class TelaDeCadastroDeUsuario extends JanelaPadrao {
 	}
 	
 	
-	private void adicionarCampoNomes() {
+	private void adicionarJLabel() {
 		JLabel nome = new JLabel("Nome:");
 		nome.setBounds(30, 70, 100, 30);
 		add(nome);
@@ -59,7 +59,7 @@ public class TelaDeCadastroDeUsuario extends JanelaPadrao {
 		add(senha02);
 	}
 	
-	private void adicionarCampoDeTextos() {
+	private void adicionarJTextFiled() {
 		
 		campoNome = new JTextField();
 		campoNome.setBounds(130, 70, 250, 30);
