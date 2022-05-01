@@ -105,6 +105,7 @@ public class UsuarioDAO {
 			query.setParameter(1, email);
 			query.setParameter(2, senha);
 			BigInteger id = (BigInteger) query.getSingleResult();
+		
 			if(id != null) {	
 				autenticado = true;
 			} 
