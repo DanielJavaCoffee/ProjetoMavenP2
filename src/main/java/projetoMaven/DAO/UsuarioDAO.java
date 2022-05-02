@@ -37,7 +37,7 @@ public class UsuarioDAO {
 		}
 	}
 
-	public static void excluirUsuario(Long id) {
+	public static boolean excluirUsuario(Long id) {
 
 		EntityManagerFactory entityManagerFactory = null;
 		EntityManager entityManager = null;
@@ -46,18 +46,22 @@ public class UsuarioDAO {
 			entityManager = entityManagerFactory.createEntityManager();
 
 			Usuario usuario = entityManager.find(Usuario.class, id);
-			System.out.println(usuario);
-
 			entityManager.getTransaction().begin();
 			entityManager.remove(usuario);
 			entityManager.getTransaction().commit();
-			Mensagem.usuarioExcluir();
+			return true;
 
 		} catch (PersistenceException e) {
 			Mensagem.bancoErro();
 		} catch (NumberFormatException e) {
 			Mensagem.bancoBuscarPorLetra(e);
+		} catch (IllegalArgumentException e) {
+			Mensagem.bancoErro(e);
+		} finally {
+			entityManagerFactory.close();
+			entityManager.close();
 		}
+		return false;
 	}
 
 	public static Usuario existeUsuario(Long id) {
@@ -89,7 +93,7 @@ public class UsuarioDAO {
 	public static boolean login(String email, String senha) {
 
 		boolean autenticado = false;
-		Usuario usuario = null;
+		
 		EntityManager entityManager = null;
 		EntityManagerFactory entityManagerFactory = null;
 
@@ -99,16 +103,16 @@ public class UsuarioDAO {
 			entityManager = entityManagerFactory.createEntityManager();
 
 			entityManager.getTransaction().begin();
-			
+
 			String sql = "select id from usuario where email = ? and senha = ?";
 			Query query = entityManager.createNativeQuery(sql);
 			query.setParameter(1, email);
 			query.setParameter(2, senha);
 			BigInteger id = (BigInteger) query.getSingleResult();
-		
-			if(id != null) {	
+
+			if (id != null) {
 				autenticado = true;
-			} 
+			}
 
 			entityManager.getTransaction().commit();
 
@@ -120,10 +124,9 @@ public class UsuarioDAO {
 			entityManagerFactory.close();
 			entityManager.close();
 		}
-		
+
 		return autenticado;
 	}
-	
 
 	@SuppressWarnings("unchecked")
 	public static List<Usuario> findAll() {
@@ -131,7 +134,7 @@ public class UsuarioDAO {
 		EntityManagerFactory entityManagerFactory = null;
 		List<Usuario> usuarios = null;
 		try {
-			
+
 			entityManagerFactory = Persistence.createEntityManagerFactory("projetoP2JPA");
 			entityManager = entityManagerFactory.createEntityManager();
 			entityManager.getTransaction().begin();

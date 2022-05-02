@@ -67,7 +67,9 @@ public class TelaDeMenu extends JanelaPadrao {
 		menuOp.add(cadastroDeCanal);
 		cadastroDeCanal.addActionListener(ouvinte);
 		
-		
+		JMenuItem listarCanal = new JMenuItem("Listar Canal");
+		menuOp.add(listarCanal);
+		listarCanal.addActionListener(ouvinte);	
 	}
 
 	public JButton getButtonExcluir() {

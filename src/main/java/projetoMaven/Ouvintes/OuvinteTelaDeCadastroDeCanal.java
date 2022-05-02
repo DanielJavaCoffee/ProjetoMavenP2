@@ -29,6 +29,8 @@ public class OuvinteTelaDeCadastroDeCanal implements ActionListener {
 		String nomeDoCanal = telaCadastroDeCanal.getCampoNome().getText();
 	//	String valor = telaCadastroDeCanal.getCampoFormaDeAssistir().getText();
    //  	String canalOuLink = telaCadastroDeCanal.getCampoNumeroOuLink().getText();
+		
+		Canal canal = new Canal();
 
 		String[] operacao = { "canal aberto de televisão", "broadcasting aberto na interne", "pacote de assinatura",
 				"assinatura individual de televisão", "Assinatura Individual De Broadcasting" };
@@ -37,25 +39,23 @@ public class OuvinteTelaDeCadastroDeCanal implements ActionListener {
 
 		if (entrada == operacao[0]) {
 			String numeroDoCanal = JOptionPane.showInputDialog("Número Do Canal: ");
-			Canal c = new Canal(nomeDoCanal, CanalForma.CANAL_ABERTO.toString(), numeroDoCanal, null);
-			CanalDAO.saveUpDateCanal(c);
+		    canal = new Canal(nomeDoCanal, CanalForma.CANAL_ABERTO.toString(), numeroDoCanal, null);
 		} else if (entrada == operacao[1]) {
 			String link = JOptionPane.showInputDialog("Link: ");
-			Canal c = new Canal(nomeDoCanal, CanalForma.BROADCASTING.toString(), null, link);
-			CanalDAO.saveUpDateCanal(c);
+		    canal = new Canal(nomeDoCanal, CanalForma.BROADCASTING.toString(), null, link);
 		} else if (entrada == operacao[2]) {
 			String numeroDoCanal = JOptionPane.showInputDialog("Número Do Canal: ");
-			Canal c = new Canal(nomeDoCanal, CanalForma.PACOTE_DE_ASSINATURA.toString(), numeroDoCanal, null);
-			CanalDAO.saveUpDateCanal(c);
+		    canal = new Canal(nomeDoCanal, CanalForma.PACOTE_DE_ASSINATURA.toString(), numeroDoCanal, null);
 		} else if (entrada == operacao[3]) {
 			String link = JOptionPane.showInputDialog("Link: ");
-			Canal c = new Canal(nomeDoCanal, CanalForma.ASSINATURA_INDIVIDUAL_DE_TELEVISAO.toString(), null, link);
-			CanalDAO.saveUpDateCanal(c);
+		    canal = new Canal(nomeDoCanal, CanalForma.ASSINATURA_INDIVIDUAL_DE_TELEVISAO.toString(), null, link);	
 		} else {
 			String link = JOptionPane.showInputDialog("Link: ");
-			Canal c = new Canal(nomeDoCanal, CanalForma.ASSINATURA_INDIVIDUAL_DE_BROADCASTING.toString(), null, link);
-			CanalDAO.saveUpDateCanal(c);
+		    canal = new Canal(nomeDoCanal, CanalForma.ASSINATURA_INDIVIDUAL_DE_BROADCASTING.toString(), null, link);
 		}
+	
+		CanalDAO.saveUpDateCanal(canal);
+		Mensagem.canalSalvo();
 		telaCadastroDeCanal.setVisible(false);
 		new TelaCadastroDeCanal(null);
 

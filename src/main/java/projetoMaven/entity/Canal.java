@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Canal implements Serializable{
+public class Canal implements Serializable, Comparable<Canal>{
 
 	private static final long serialVersionUID = 4016689312543956378L;
 	@Id
@@ -67,5 +67,9 @@ public class Canal implements Serializable{
 
 	public long getId() {
 		return id;
+	}
+
+	public int compareTo(Canal o) {
+		return 0;
 	}
 }
