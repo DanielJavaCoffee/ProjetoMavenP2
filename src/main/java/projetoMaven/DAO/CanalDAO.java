@@ -32,25 +32,24 @@ public class CanalDAO {
 			entityManagerFactory.close();
 		}
 	}
-	
+
 	public static boolean excluirCanal(Long id) {
-		
+
 		EntityManager entityManager = null;
 		EntityManagerFactory entityManagerFactory = null;
-	
+
 		try {
-			
+
 			entityManagerFactory = Persistence.createEntityManagerFactory("projetoP2JPA");
 			entityManager = entityManagerFactory.createEntityManager();
-			
 			entityManager.getTransaction().begin();
 			Canal canal = entityManager.find(Canal.class, id);
 			entityManager.remove(canal);
 			entityManager.getTransaction().commit();
 			return true;
-			
+
 		} catch (Exception e) {
-			
+
 		}
 		return false;
 	}
@@ -75,5 +74,31 @@ public class CanalDAO {
 			entityManagerFactory.close();
 		}
 		return usuarios;
+	}
+
+	public static Canal existeCanal(Long id) {
+
+		Canal canal = null;
+		EntityManager entityManager = null;
+		EntityManagerFactory entityManagerFactory = null;
+
+		try {
+
+			entityManagerFactory = Persistence.createEntityManagerFactory("projetoP2JPA");
+			entityManager = entityManagerFactory.createEntityManager();
+			entityManager.getTransaction().begin();
+			canal = entityManager.find(Canal.class, id);
+			if (canal != null) {
+				return canal;
+			}
+			entityManager.getTransaction().commit();
+
+		} catch (PersistenceException e) {
+			Mensagem.bancoErro(e);
+		} finally {
+			entityManager.close();
+			entityManagerFactory.close();
+		}
+		return null;
 	}
 }

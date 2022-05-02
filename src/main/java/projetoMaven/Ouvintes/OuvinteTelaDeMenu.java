@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import projetoMaven.DAO.UsuarioDAO;
 import projetoMaven.Mensagem.Mensagem;
 import projetoMaven.Telas.TelaCadastroDeCanal;
+import projetoMaven.Telas.TelaCadastroDePrograma;
 import projetoMaven.Telas.TelaDeListarCanal;
 import projetoMaven.Telas.TelaDeMenu;
 
@@ -31,6 +32,9 @@ public class OuvinteTelaDeMenu implements ActionListener {
 			telaDeMenu.setVisible(false);
 		} else if(comando.equals("Listar Canal")) {
 			new TelaDeListarCanal(null);
+			telaDeMenu.setVisible(false);
+		} else if(comando.equals("Cadastrar Programa")) {
+			new TelaCadastroDePrograma(null);
 			telaDeMenu.setVisible(false);
 		}
 	}

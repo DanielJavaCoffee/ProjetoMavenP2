@@ -1,6 +1,6 @@
 package projetoMaven.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,18 +17,20 @@ public class Programa implements Comparable<Programa> {
 	private Date dataDoPrograma;
 	@Column
 	private String horario;
+	
 	@Id
 	private Long id;
 	
 	public Programa() {
-		
+		this.id = System.currentTimeMillis();
 	}
 	
-	public Programa(String nomeDoPrograma, Canal canal, Date dateDeNascimento, String horario ) {
+	public Programa(String nomeDoPrograma, Canal canal, Date dataDoPrograma, String horario) {
 		this.nomeDoPrograma = nomeDoPrograma;
 		this.canal = canal;
-		this.dataDoPrograma = dateDeNascimento;
+		this.dataDoPrograma = dataDoPrograma;
 		this.horario = horario;
+		this.id = System.currentTimeMillis();
 	}
 	
 	public String toString() { 
@@ -73,7 +75,6 @@ public class Programa implements Comparable<Programa> {
 	}
 
 	public int compareTo(Programa o) {
-	
 		return 0;
 	}
 }

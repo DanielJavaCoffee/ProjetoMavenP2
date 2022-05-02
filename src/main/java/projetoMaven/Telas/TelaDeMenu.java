@@ -70,6 +70,10 @@ public class TelaDeMenu extends JanelaPadrao {
 		JMenuItem listarCanal = new JMenuItem("Listar Canal");
 		menuOp.add(listarCanal);
 		listarCanal.addActionListener(ouvinte);	
+		
+		JMenuItem cadastrarPrograma = new JMenuItem("Cadastrar Programa");
+		menuOp.add(cadastrarPrograma);
+		cadastrarPrograma.addActionListener(ouvinte);
 	}
 
 	public JButton getButtonExcluir() {
