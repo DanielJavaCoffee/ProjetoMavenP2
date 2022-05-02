@@ -13,7 +13,7 @@ import javax.mail.internet.MimeMessage;
 
 public class MensageiroEmail {
 	
-	public static <T> void enviarMensagemAoCliente (String assunto, String email, T t)  {
+	public static <T> void enviarMensagem (String assunto, String email, T t)  {
 
         Properties props = new Properties();
 

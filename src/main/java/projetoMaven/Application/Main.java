@@ -1,4 +1,4 @@
-package projetoMaven.Programa;
+package projetoMaven.Application;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import projetoMaven.Telas.TelaDeCadastroDeUsuario;
 import projetoMaven.Telas.TelaDeLogin;
 import projetoMaven.entity.Usuario;
 
-public class Programa {
+public class Main {
 
 	public static void main(String[] args) {
 

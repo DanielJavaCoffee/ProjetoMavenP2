@@ -44,10 +44,10 @@ public class OuvinteTelaDeLogin implements ActionListener {
 
 	public void actionPerformedSenha(ActionEvent senha) {
 
-		long id = Long.parseLong(JOptionPane.showInputDialog(telaDeLogin, "Informe o nome do usuário: "));
+		long id = Long.parseLong(JOptionPane.showInputDialog(telaDeLogin, "Informe o ID do usuário: "));
 		if (UsuarioDAO.existeUsuario(id) != null) {
 
-			MensageiroEmail.enviarMensagemAoCliente("Seus Dados", UsuarioDAO.existeUsuario(id).getEmail(),
+			MensageiroEmail.enviarMensagem("Seus Dados", UsuarioDAO.existeUsuario(id).getEmail(),
 					UsuarioDAO.existeUsuario(id).toString());
 			Mensagem.emailEnviadoUsuario();
 

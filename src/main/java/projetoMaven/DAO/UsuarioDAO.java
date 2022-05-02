@@ -1,6 +1,5 @@
 package projetoMaven.DAO;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 
@@ -93,7 +92,7 @@ public class UsuarioDAO {
 	public static boolean login(String email, String senha) {
 
 		boolean autenticado = false;
-		
+
 		EntityManager entityManager = null;
 		EntityManagerFactory entityManagerFactory = null;
 
