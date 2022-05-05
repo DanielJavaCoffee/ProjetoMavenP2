@@ -11,7 +11,6 @@ public class Programa implements Comparable<Programa> {
 
 	@Column
 	private String nomeDoPrograma;
-	@Column
 	private Canal canal;
 	@Column
 	private Date dataDoPrograma;

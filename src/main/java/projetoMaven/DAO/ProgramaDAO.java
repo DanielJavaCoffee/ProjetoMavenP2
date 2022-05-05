@@ -35,7 +35,7 @@ public class ProgramaDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static ArrayList<Programa> findall() throws IllegalArgumentException {
+	public static ArrayList<Programa> findAll() throws IllegalArgumentException {
 
 		EntityManager entityManager = null;
 		EntityManagerFactory entityManagerFactory =  null;

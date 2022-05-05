@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import projetoMaven.Telas.TelaDeListarPrograma;
+import projetoMaven.Telas.TelaDeMenu;
 
 public class OuvinteTelaDeListarPrograma implements ActionListener {
 	
@@ -18,6 +19,8 @@ public class OuvinteTelaDeListarPrograma implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		new TelaDeMenu(null);
+		telaDeListarPrograma.setVisible(false);
 		
 	}
 

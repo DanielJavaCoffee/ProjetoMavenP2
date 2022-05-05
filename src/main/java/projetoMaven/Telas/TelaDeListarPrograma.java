@@ -108,7 +108,7 @@ public class TelaDeListarPrograma extends JanelaPadrao {
 		modelo.addColumn("Nome Do Canal");
 		modelo.addColumn("Número Do Canal");
 
-		ArrayList<Programa> programas = ProgramaDAO.findall();
+		ArrayList<Programa> programas = ProgramaDAO.findAll();
 
 		Collections.sort(programas);
 
