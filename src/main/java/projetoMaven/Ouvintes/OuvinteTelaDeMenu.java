@@ -10,7 +10,9 @@ import projetoMaven.Mensagem.Mensagem;
 import projetoMaven.Telas.TelaCadastroDeCanal;
 import projetoMaven.Telas.TelaCadastroDePrograma;
 import projetoMaven.Telas.TelaDeListarCanal;
+import projetoMaven.Telas.TelaDeListarPrograma;
 import projetoMaven.Telas.TelaDeMenu;
+import projetoMaven.Telas.TelaEditarCadastroDeCanal;
 
 public class OuvinteTelaDeMenu implements ActionListener {
 
@@ -35,6 +37,9 @@ public class OuvinteTelaDeMenu implements ActionListener {
 			telaDeMenu.setVisible(false);
 		} else if(comando.equals("Cadastrar Programa")) {
 			new TelaCadastroDePrograma(null);
+			telaDeMenu.setVisible(false);
+		} else if(comando.equals("Listar Programas")) {
+			new TelaDeListarPrograma(null);
 			telaDeMenu.setVisible(false);
 		}
 	}

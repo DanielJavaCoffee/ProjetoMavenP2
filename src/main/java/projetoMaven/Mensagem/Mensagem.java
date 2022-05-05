@@ -62,4 +62,13 @@ public class Mensagem {
 	public static void canalNaoEncontardo() {
 		JOptionPane.showMessageDialog(null, "Canal Não Encontrado!");
 	}
+	
+	// numberFormatException
+	public static void numberFormatException(NumberFormatException e) {
+		JOptionPane.showMessageDialog(null, "Erro." + e.getMessage());
+	}
+	// NullPointerException
+	public static void nullPointerException(NullPointerException e) {
+		JOptionPane.showMessageDialog(null, "Erro Ao se Conectar Com o Banco De Dados." + e.getMessage());
+	}
 }

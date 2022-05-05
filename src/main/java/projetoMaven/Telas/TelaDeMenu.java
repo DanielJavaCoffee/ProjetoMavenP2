@@ -26,7 +26,6 @@ public class TelaDeMenu extends JanelaPadrao {
 		excluirUsuario();
 		adicionarMenu();
 		setVisible(true);
-
 	}
 
 	private void adicionarTitulo() {
@@ -74,10 +73,13 @@ public class TelaDeMenu extends JanelaPadrao {
 		JMenuItem cadastrarPrograma = new JMenuItem("Cadastrar Programa");
 		menuOp.add(cadastrarPrograma);
 		cadastrarPrograma.addActionListener(ouvinte);
+		
+		JMenuItem listarPrograma = new JMenuItem("Listar Programas");
+		menuOp.add(listarPrograma);
+		listarPrograma.addActionListener(ouvinte);
 	}
 
 	public JButton getButtonExcluir() {
 		return buttonExcluir;
 	}
-
 }

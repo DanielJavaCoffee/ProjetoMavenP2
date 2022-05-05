@@ -67,7 +67,7 @@ public class TelaDeLogin extends JanelaPadrao {
 	
 	public void adicionarButtonProseguir() {
 
-		buttonProseguir = new JButton("Proseguir");
+		buttonProseguir = new JButton("Prosseguir");
 		buttonProseguir.setBounds(520, 400, 130, 30);
 		buttonProseguir.addActionListener(proseguir());
 		add(buttonProseguir);

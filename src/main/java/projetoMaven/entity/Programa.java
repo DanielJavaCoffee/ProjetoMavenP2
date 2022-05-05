@@ -17,7 +17,8 @@ public class Programa implements Comparable<Programa> {
 	private Date dataDoPrograma;
 	@Column
 	private String horario;
-	
+	@Column
+	private String nomeDoCanal;
 	@Id
 	private Long id;
 	
@@ -33,9 +34,16 @@ public class Programa implements Comparable<Programa> {
 		this.id = System.currentTimeMillis();
 	}
 	
+	public Programa(String nomeDoPrograma, String nomeDoCanal, Date dataDoPrograma, String horario) {
+		this.nomeDoPrograma = nomeDoPrograma;
+		this.nomeDoCanal = nomeDoCanal; 
+		this.dataDoPrograma = dataDoPrograma;
+		this.horario = horario;
+		this.id = System.currentTimeMillis();
+	}
+	
 	public String toString() { 
-		return "Nome Do Canal: " + this.nomeDoPrograma + " Canal: " + this.canal + " Data De exebição: " + this.dataDoPrograma +
-				" Horario: " + this.horario;			
+		return "Nome Do Canal: " + this.nomeDoPrograma + " Nome Do Canal Canal: " + this.canal.getNomeDoCanal() + " Data De exebição: " + this.dataDoPrograma + " Horario: " + this.horario;			
 	}
 	
 	public String getNomeDoPrograma() {
@@ -72,6 +80,14 @@ public class Programa implements Comparable<Programa> {
 
 	public Long getId() {
 		return id;
+	}
+
+	public String getNomeDoCanal() {
+		return nomeDoCanal;
+	}
+
+	public void setNomeDoCanal(String nomeDoCanal) {
+		this.nomeDoCanal = nomeDoCanal;
 	}
 
 	public int compareTo(Programa o) {

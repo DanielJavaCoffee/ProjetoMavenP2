@@ -30,15 +30,20 @@ public class OuvinteTelaDeLogin implements ActionListener {
 		String email = telaDeLogin.getCampoEmail().getText();
 		String senha = telaDeLogin.getCampoEmail().getText();
 
-		if (email.isBlank() || senha.isBlank()) {
-			Mensagem.usuarioCampoVazio();
-		} else {
-			if (UsuarioDAO.login(email, senha)) {
-				new TelaDeMenu(null);
-				telaDeLogin.setVisible(false);
+		try {
+
+			if (email.isBlank() || senha.isBlank()) {
+				Mensagem.usuarioCampoVazio();
 			} else {
-				Mensagem.usuarioNaoEncontrado();
+				if (UsuarioDAO.login(email, senha)) {
+					new TelaDeMenu(null);
+					telaDeLogin.setVisible(false);
+				} else {
+					Mensagem.usuarioNaoEncontrado();
+				}
 			}
+		} catch (NullPointerException e) {
+			Mensagem.nullPointerException(e);
 		}
 	}
 

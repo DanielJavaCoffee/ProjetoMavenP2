@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -28,8 +29,8 @@ public class TelaCadastroDePrograma extends JanelaTelaCadastroDePrograma {
 	private JTextField campoIDCanal;
 	private JFormattedTextField campoData;
 	private JFormattedTextField campoHorario;
-	private Button buttonVoltar;
-	private Button buttonSalvar;
+	private JButton buttonVoltar;
+	private JButton buttonSalvar;
 
 	public TelaCadastroDePrograma(String titulo) {
 		super(titulo);
@@ -131,7 +132,7 @@ public class TelaCadastroDePrograma extends JanelaTelaCadastroDePrograma {
 
 	private void adicionarButtonVoltar() {
 
-		buttonVoltar = new Button("Voltar");
+		buttonVoltar = new JButton("Voltar");
 		buttonVoltar.setBounds(40, 600, 100, 30);
 		buttonVoltar.addActionListener(voltar());
 		add(buttonVoltar);
@@ -148,7 +149,7 @@ public class TelaCadastroDePrograma extends JanelaTelaCadastroDePrograma {
 
 	private void adicionarButtonSalvar() {
 
-		buttonSalvar = new Button("Salvar");
+		buttonSalvar = new JButton("Salvar");
 		buttonSalvar.setBounds(720, 600, 100, 30);
 		buttonSalvar.addActionListener(salvar());
 		add(buttonSalvar);
@@ -178,11 +179,11 @@ public class TelaCadastroDePrograma extends JanelaTelaCadastroDePrograma {
 		return campoHorario;
 	}
 
-	public Button getButtonVoltar() {
+	public JButton getButtonVoltar() {
 		return buttonVoltar;
 	}
 
-	public Button getButtonSalvar() {
+	public JButton getButtonSalvar() {
 		return buttonSalvar;
 	}
 }

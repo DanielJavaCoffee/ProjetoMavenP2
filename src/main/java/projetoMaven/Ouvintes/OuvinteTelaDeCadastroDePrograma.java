@@ -11,6 +11,7 @@ import projetoMaven.DAO.ProgramaDAO;
 import projetoMaven.Mensagem.Mensagem;
 import projetoMaven.Telas.TelaCadastroDePrograma;
 import projetoMaven.Telas.TelaDeMenu;
+import projetoMaven.entity.Canal;
 import projetoMaven.entity.Programa;
 
 public class OuvinteTelaDeCadastroDePrograma implements ActionListener {
@@ -31,23 +32,33 @@ public class OuvinteTelaDeCadastroDePrograma implements ActionListener {
 	}
 
 	public void actionPerformedSalvar(ActionEvent e) {
-		
-		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
-		String nome = telaCadastroDePrograma.getCampoNomeDoPrograma().getText();
-		Long id = Long.parseLong(telaCadastroDePrograma.getCampoIDCanal().getText());
-		Date date = null;
+
 		try {
-			 date = (Date) sdf1.parse(telaCadastroDePrograma.getCampoData().getText());
-		} catch (ParseException e1) {
-			e1.printStackTrace();
-		}
-		String horario = telaCadastroDePrograma.getCampoHorario().getText();
-		
-		if(CanalDAO.existeCanal(id) != null) {
-			Programa programa = new Programa(nome, CanalDAO.existeCanal(id), date, horario);
-			ProgramaDAO.saveUpDate(programa);
-		} else {
-			Mensagem.canalNaoEncontardo();
+			SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
+			String nome = telaCadastroDePrograma.getCampoNomeDoPrograma().getText();
+			long id = Long.parseLong(telaCadastroDePrograma.getCampoIDCanal().getText());
+			Date date = null;
+			try {
+				date = (Date) sdf1.parse(telaCadastroDePrograma.getCampoData().getText());
+			} catch (ParseException e1) {
+				e1.printStackTrace();
+			}
+			String horario = telaCadastroDePrograma.getCampoHorario().getText();
+
+			if (nome.isBlank() || horario.isBlank()) {
+				Mensagem.usuarioCampoVazio();
+			} else {
+
+				if (CanalDAO.existeCanal(id) != null) {
+					System.out.println(CanalDAO.existeCanal(id).toString());
+					Programa programa = new Programa(nome, CanalDAO.existeCanal(id).getNomeDoCanal(), date, horario);
+					ProgramaDAO.saveUpDate(programa);
+				} else {
+					Mensagem.canalNaoEncontardo();
+				}
+			}
+		} catch (NumberFormatException number) {
+			Mensagem.numberFormatException(number);
 		}
 	}
 }

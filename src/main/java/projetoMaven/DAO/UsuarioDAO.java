@@ -56,7 +56,8 @@ public class UsuarioDAO {
 			Mensagem.bancoBuscarPorLetra(e);
 		} catch (IllegalArgumentException e) {
 			Mensagem.bancoErro(e);
-		} finally {
+		} 
+		finally {
 			entityManagerFactory.close();
 			entityManager.close();
 		}

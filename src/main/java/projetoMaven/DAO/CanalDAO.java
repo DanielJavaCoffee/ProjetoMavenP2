@@ -9,6 +9,7 @@ import javax.persistence.PersistenceException;
 
 import projetoMaven.Mensagem.Mensagem;
 import projetoMaven.entity.Canal;
+import projetoMaven.entity.Usuario;
 
 public class CanalDAO {
 
@@ -58,13 +59,13 @@ public class CanalDAO {
 	public static ArrayList<Canal> findAll() throws IllegalArgumentException {
 		EntityManager entityManager = null;
 		EntityManagerFactory entityManagerFactory = null;
-		ArrayList<Canal> usuarios = null;
+		ArrayList<Canal> canal = null;
 		try {
 
 			entityManagerFactory = Persistence.createEntityManagerFactory("projetoP2JPA");
 			entityManager = entityManagerFactory.createEntityManager();
 			entityManager.getTransaction().begin();
-			usuarios = (ArrayList<Canal>) entityManager.createQuery("from Canal").getResultList();
+			canal = (ArrayList<Canal>) entityManager.createQuery("from Canal").getResultList();
 			entityManager.getTransaction().commit();
 
 		} catch (Exception e) {
@@ -73,7 +74,7 @@ public class CanalDAO {
 			entityManager.close();
 			entityManagerFactory.close();
 		}
-		return usuarios;
+		return canal;
 	}
 
 	public static Canal existeCanal(Long id) {
@@ -86,19 +87,21 @@ public class CanalDAO {
 
 			entityManagerFactory = Persistence.createEntityManagerFactory("projetoP2JPA");
 			entityManager = entityManagerFactory.createEntityManager();
+			
 			entityManager.getTransaction().begin();
 			canal = entityManager.find(Canal.class, id);
-			if (canal != null) {
-				return canal;
-			}
 			entityManager.getTransaction().commit();
 
 		} catch (PersistenceException e) {
 			Mensagem.bancoErro(e);
+		} catch (IllegalArgumentException e) {
+			Mensagem.bancoErro(e);
+		} catch (Exception e) {
+			Mensagem.exception(e);
 		} finally {
 			entityManager.close();
 			entityManagerFactory.close();
 		}
-		return null;
+		return canal;
 	}
 }
